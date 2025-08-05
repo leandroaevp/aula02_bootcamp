@@ -94,3 +94,41 @@ bool2 = exp2.lower() == "true"
 resultado = bool1 and bool2
 print("O resultado é:", resultado)
 
+
+#Escreva um programa que converta a temperatura de Celsius para Fahrenheit. O programa deve solicitar ao usuário a temperatura em Celsius e, utilizando try-except, garantir que a entrada seja numérica, tratando qualquer ValueError. Imprima o resultado em Fahrenheit ou uma mensagem de erro se a entrada não for válida
+try:
+    temperatura = float(input("Digite a temperatura em Grau Celsius: "))
+    fahrenheit = (temperatura*9/5) + 32
+    print("A Temperatura em Fahrenheit é :",fahrenheit)
+except ValueError:
+    print("Por favor digite um número válido")
+
+#Desenvolva uma calculadora simples que aceite duas entradas numéricas e um operador (+, -, *, /) do usuário. Use try-except para lidar com divisões por zero e entradas não numéricas. Utilize if-elif-else para realizar a operação matemática baseada no operador fornecido. Imprima o resultado ou uma mensagem de erro apropriada.
+try:
+    numero_1 = float(input("Por favor digite um numero: "))
+    numero_2 = float(input("Por favor digite outro numero: "))
+    operacao = input("Por favor digite a operação que deseja realizar (+, -, *, /): ")
+    
+    if operacao == '+':
+        resultado = numero_1 + numero_2
+        print(f"Resultado: {numero_1} + {numero_2} = {resultado}")
+    elif operacao == '-':
+        resultado = numero_1 - numero_2
+        print(f"Resultado: {numero_1} - {numero_2} = {resultado}")
+    elif operacao == '*':  # ✅ Adicionou multiplicação
+        resultado = numero_1 * numero_2
+        print(f"Resultado: {numero_1} * {numero_2} = {resultado}")
+    elif operacao == '/':
+        if numero_2 == 0:  # ✅ Tratamento específico para divisão por zero
+            print("Erro: Não é possível dividir por zero!")
+        else:
+            resultado = numero_1 / numero_2
+            print(f"Resultado: {numero_1} / {numero_2} = {resultado}")
+    else:  # ✅ Apenas para operadores inválidos
+        print("Erro: Operador inválido! Use apenas: +, -, *, /")
+
+except ValueError:
+    print("Erro: Entrada inválida. Certifique-se de inserir números válidos.")
+
+
+   
